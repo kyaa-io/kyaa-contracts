@@ -1,0 +1,10 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+
+cache/
+cache_forge/
+out/
+broadcast/
+artifacts/

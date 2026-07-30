@@ -1,0 +1,27 @@
+{
+  "network": "GIWA Sepolia",
+  "chainId": 91342,
+  "rpcUrl": "https://sepolia-rpc.giwa.io",
+  "explorerUrl": "https://sepolia-explorer.giwa.io",
+  "deployedAtBlock": 31213597,
+  "deployedAt": "2026-07-20T14:45:13Z",
+  "compiler": "0.8.28",
+  "optimizer": {
+    "enabled": true,
+    "runs": 200
+  },
+  "contracts": {
+    "ByUsPassport": {
+      "address": "0x17f9FB7658A326DD88dB523739c227faf50Fca20",
+      "transactionHash": "0xed05fe63e0e7a68f556f908a2cfa59f67bd4d48c65ad7ce4c7da3ad57e679689",
+      "runtimeBytecodeHash": "0xa43ffbcc369ad26df22a1094632438d780f976579e07aa5749ea03df3199b1da",
+      "verified": true
+    },
+    "ByUsStamp": {
+      "address": "0x1AdCdE3473c4e884E60205b397ecE744D8892285",
+      "transactionHash": "0x817130af51218431d2dc913f96a0d939d0aea62ea30339d2c5771d034d100190",
+      "runtimeBytecodeHash": "0x83192d2c4a2e4da60d9cd35e7a58d7ad61df97b7afc0d9592fb015c033400f07",
+      "verified": true
+    }
+  }
+}
