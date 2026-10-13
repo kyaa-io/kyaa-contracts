@@ -210,3 +210,9 @@ Please read [SECURITY.md](SECURITY.md) before reporting a vulnerability.
 ## License
 
 The contracts are available under the [MIT License](LICENSE).
+
+## New kyaa credentials
+
+`KyaaPassport` exposes `kyaa Fan Passport` / `KYAAPASS`; `KyaaStamp` preserves the existing ERC-1155 behavior. Both reuse the original access control and non-transferability. Existing ByUs deployments and token metadata remain unchanged.
+
+Run `FOUNDRY_PROFILE=kyaa forge test` for the new compiler profile (Solidity 0.8.28, optimizer runs 0, via IR). The reviewed Hub upgrade, deployment manifest and migration controls live in [kyaa](https://github.com/kyaa-io/kyaa); new issuance activates only after its Timelock and route verification.

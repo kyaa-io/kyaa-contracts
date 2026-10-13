@@ -15,3 +15,8 @@ bracket_spacing = true
 
 [rpc_endpoints]
 giwa_sepolia = "${GIWA_RPC_URL}"
+
+# New kyaa deployments use the reviewed app-repository compiler profile.
+[profile.kyaa]
+optimizer_runs = 0
+via_ir = true
