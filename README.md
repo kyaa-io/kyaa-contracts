@@ -1,23 +1,23 @@
 <p align="center">
-  <a href="https://byus.kr/?locale=en">
-    <img src=".github/assets/byus-wordmark.svg" width="240" alt="ByUs">
+  <a href="https://kyaa.io/?locale=en">
+    <img src=".github/assets/kyaa-wordmark.svg" width="240" alt="kyaa">
   </a>
 </p>
 
-<h1 align="center">ByUs Contracts</h1>
+<h1 align="center">kyaa Contracts</h1>
 
 <p align="center">
   Non-transferable fan identity and participation credentials on GIWA Sepolia.
 </p>
 
 <p align="center">
-  <a href="https://github.com/ByUs-FanPassport/ByUs-Contracts/actions/workflows/contracts.yml"><img alt="Contracts CI" src="https://github.com/ByUs-FanPassport/ByUs-Contracts/actions/workflows/contracts.yml/badge.svg"></a>
+  <a href="https://github.com/kyaa-io/kyaa-contracts/actions/workflows/contracts.yml"><img alt="Contracts CI" src="https://github.com/kyaa-io/kyaa-contracts/actions/workflows/contracts.yml/badge.svg"></a>
   <img alt="Solidity 0.8.28" src="https://img.shields.io/badge/Solidity-0.8.28-363636?style=flat-square">
   <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-7B5CFF?style=flat-square"></a>
   <a href="https://docs.giwa.io/giwa-chain/en/"><img alt="GIWA Sepolia" src="https://img.shields.io/badge/GIWA_Sepolia-91342-FF5CDA?style=flat-square"></a>
 </p>
 
-ByUs turns verified fan activity into durable credentials. A fan receives a creator-specific Passport after verification, then collects Stamps through LIVE reservations, attendance, and surveys.
+kyaa turns verified fan activity into durable credentials. A fan receives a creator-specific Passport after verification, then collects Stamps through LIVE reservations, attendance, and surveys.
 
 The contracts make those records publicly verifiable without making them tradable.
 
@@ -41,16 +41,16 @@ Both contracts are:
 
 ```mermaid
 flowchart LR
-    Activity["Verified fan activity"] --> DB["ByUs operational record"]
+    Activity["Verified fan activity"] --> DB["kyaa operational record"]
     DB --> Job["Idempotent mint job"]
-    Job --> Worker["ByUs relayer"]
+    Job --> Worker["kyaa relayer"]
     Worker --> Passport["ByUsPassport<br/>ERC-721"]
     Worker --> Stamp["ByUsStamp<br/>ERC-1155"]
     Passport --> Wallet["Fan embedded wallet"]
     Stamp --> Wallet
 ```
 
-The contracts store an opaque `bytes32` business identifier and an immutable metadata URI. The ByUs application keeps fan identity, activity logs, score, benefits, and fulfillment data off-chain.
+The contracts store an opaque `bytes32` business identifier and an immutable metadata URI. The kyaa application keeps fan identity, activity logs, score, benefits, and fulfillment data off-chain.
 
 ## Security model
 
@@ -80,7 +80,9 @@ The default-admin transfer delay is two days. The deployment script accepts sepa
 - on-chain fan PII;
 - a claim of external audit.
 
-## GIWA Sepolia deployment
+## Existing ByUs deployment
+
+These deployed contracts retain their verified source names, token names, addresses, and metadata. The repository brand is kyaa; this does not rename already issued credentials.
 
 Network: **GIWA Sepolia** · Chain ID: **91342**
 
@@ -106,8 +108,8 @@ Canonical deployment metadata and compiled runtime hashes are recorded in [`depl
 - Git with submodule support
 
 ```bash
-git clone --recurse-submodules https://github.com/ByUs-FanPassport/ByUs-Contracts.git
-cd ByUs-Contracts
+git clone --recurse-submodules https://github.com/kyaa-io/kyaa-contracts.git
+cd kyaa-contracts
 
 forge build
 forge test
@@ -184,7 +186,7 @@ scripts/                    Local and live bytecode verification
 
 ## Integration notes
 
-ByUs uses a database-first, asynchronous minting pipeline:
+kyaa uses a database-first, asynchronous minting pipeline:
 
 1. a fan action commits the operational record and idempotent job;
 2. a worker builds PII-free credential metadata and pins it to IPFS;
@@ -196,9 +198,9 @@ The application database—not the chain—is the operational source of truth fo
 
 ## Related projects
 
-- [ByUs application](https://github.com/ByUs-FanPassport/ByUs)
-- [ByUs Developer Documentation](https://github.com/ByUs-FanPassport/ByUs---GitBook)
-- [Live product](https://byus.kr/?locale=en)
+- [kyaa application](https://github.com/kyaa-io/kyaa)
+- [kyaa Developer Documentation](https://github.com/kyaa-io/kyaa-docs)
+- [Live product](https://kyaa.io/?locale=en)
 - [GIWA Documentation](https://docs.giwa.io/giwa-chain/en/)
 
 ## Security
